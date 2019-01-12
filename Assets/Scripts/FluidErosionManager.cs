@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class FluidErosionManager : MonoBehaviour
 {
+	public TerrainData terrain;
 	List<Drop> drops;
-	public int nrParticles;
+	// ---- Drop settings
+	public int nrDrops;
+	public float dropRadius;
 	public float sedimentCarryAmount;
+
+	// ---- Terrain settings
+	public float sedimentWeight;
+	public float sedimentRegidety;
+
 
 	void Start()
 	{
