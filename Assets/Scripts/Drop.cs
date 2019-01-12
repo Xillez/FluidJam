@@ -8,8 +8,9 @@ public class Drop
 	public Vector3 direction;
 	public float velocity;
 	public float radius;
+	public float mass;
 
-	public Drop(Vector3 position, Vector3 direction, float velocity, float radius)
+	public Drop(Vector3 position, Vector3 direction, float velocity = 1.0f, float radius = 0.1f, float mass = 0.1f)
 	{
 		this.position = position;
 		this.direction = direction;

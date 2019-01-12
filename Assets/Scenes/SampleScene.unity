@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -296,8 +296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ebd69fccdaf42f5be4e008b55f0c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrain: {fileID: 15600000, guid: 4fbdc991bc0e24e39b8505037aa088ca, type: 2}
-  nrDrops: 5000
+  iterations: 1000
+  terrain: {fileID: 2138164560}
+  rainDensity: 1
   dropRadius: 0.1
   sedimentCarryAmount: 1
   sedimentWeight: 1

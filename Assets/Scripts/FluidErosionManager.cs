@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class FluidErosionManager : MonoBehaviour
 {
-	public TerrainData terrain;
+	public int iterations;
+	public Terrain terrain;
 	List<Drop> drops = new List<Drop>();
 	// ---- Drop settings
 	Bounds terrainBounds;
@@ -15,7 +17,6 @@ public class FluidErosionManager : MonoBehaviour
 	// ---- Terrain settings
 	public float sedimentWeight;
 	public float sedimentRigidity;
-
 
 	void Start()
 	{
@@ -32,7 +33,7 @@ public class FluidErosionManager : MonoBehaviour
 		}
 		
 		// Get bounds of terrain
-		this.terrainBounds = terrain.bounds;
+		this.terrainBounds = terrain.terrainData.bounds;
 
 		// Calculate horizontal seperation
 		Vector3 separation = new Vector3(this.terrainBounds.size.x / (this.dropRadius / this.rainDensity), 0, this.terrainBounds.size.z / (this.dropRadius / this.rainDensity));
@@ -42,18 +43,30 @@ public class FluidErosionManager : MonoBehaviour
 		{
 			for (int x = 0; x < (this.terrainBounds.size.x / separation.x) + 1; ++x)
 			{
-				this.drops.Add(new Drop(
-						new Vector3(terrainBounds.min.x + (separation.x * x), 0, terrainBounds.min.z + (separation.z * z)), Vector3.down, 1.0f, this.dropRadius
-					)
-				);
+				// Calculate horizontal position
+				Vector3 pos = new Vector3(terrainBounds.min.x + (separation.x * x), 0, terrainBounds.min.z + (separation.z * z));
+				// Apply the terrain hight at the current location
+				pos.y = terrain.SampleHeight(pos);
+				Debug.Log(pos);
+				// Add new drop at position to list
+				this.drops.Add(new Drop(pos, Vector3.down, 1.0f, this.dropRadius));
 			}
 		}
 	}
 	
 	void Update()
 	{
-		//
+		
 	}
 
-	
+	public void RunErosion()
+	{
+		//for (int)
+	}
+
+	private void OnDrawGizmos()
+	{
+		foreach (Drop drop in this.drops)
+			Gizmos.DrawSphere(drop.position, drop.radius);
+	}
 }
