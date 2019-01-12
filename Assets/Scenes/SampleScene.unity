@@ -299,7 +299,7 @@ MonoBehaviour:
   iterations: 1000
   terrain: {fileID: 2138164560}
   rainDensity: 1
-  dropRadius: 0.1
+  dropRadius: 1
   sedimentCarryAmount: 1
   sedimentWeight: 1
   sedimentRigidity: 1
