@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -264,8 +264,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074358183}
+  - component: {fileID: 1074358184}
   m_Layer: 0
-  m_Name: FluidManager
+  m_Name: FluidErosionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,6 +285,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074358184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074358182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ebd69fccdaf42f5be4e008b55f0c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 15600000, guid: 4fbdc991bc0e24e39b8505037aa088ca, type: 2}
+  nrDrops: 5000
+  dropRadius: 0.1
+  sedimentCarryAmount: 1
+  sedimentWeight: 1
+  sedimentRigidity: 1
 --- !u!1 &2138164558
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +338,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 3
   m_TerrainData: {fileID: 15600000, guid: 4fbdc991bc0e24e39b8505037aa088ca, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
