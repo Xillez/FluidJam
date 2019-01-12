@@ -36,7 +36,7 @@ public class FluidErosionManager : MonoBehaviour
 		this.terrainBounds = terrain.terrainData.bounds;
 
 		// Calculate horizontal seperation
-		Vector3 separation = new Vector3(this.terrainBounds.size.x / (this.dropRadius / this.rainDensity), 0, this.terrainBounds.size.z / (this.dropRadius / this.rainDensity));
+		Vector3 separation = new Vector3(this.terrainBounds.size.x / (this.terrainBounds.size.x / this.dropRadius), 0, this.terrainBounds.size.z / (this.terrainBounds.size.z / this.dropRadius));
 
 		// Place all rain drops
 		for (int z = 0; z < (this.terrainBounds.size.z / separation.z) + 1; ++z)
@@ -61,12 +61,13 @@ public class FluidErosionManager : MonoBehaviour
 
 	public void RunErosion()
 	{
-		//for (int)
+		//for (int)	
 	}
 
 	private void OnDrawGizmos()
 	{
-		foreach (Drop drop in this.drops)
-			Gizmos.DrawSphere(drop.position, drop.radius);
+		Debug.Log(this.drops);
+		/*for (int i = 0; i < this.drops.Count; ++i)
+			Gizmos.DrawSphere(this.drops[i].position, this.drops[i].radius);*/
 	}
 }
