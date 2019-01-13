@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iterations: 3
-  terrain: {fileID: 0}
+  terrain: {fileID: 1883130733}
   dropRadius: 1
   evaporationSpeed: 0.249
 --- !u!1 &1883130731
