@@ -51,9 +51,9 @@ public class FluidErosionManager : MonoBehaviour
 		this.dropSeparation = new Vector3(this.terrainBounds.size.x / this.nrDrops.x, 0, this.terrainBounds.size.z / this.nrDrops.y);
 
 		// Place all rain drops
-		for (int z = 0; z < 30; ++z)
+		for (int z = 0; z < this.nrDrops.y; ++z)
 		{
-			for (int x = 0; x < 30; ++x)
+			for (int x = 0; x < this.nrDrops.x; ++x)
 			{
 				// Calculate horizontal position
 				Vector3 pos = new Vector3(terrainBounds.min.x + (dropSeparation.x * x), 0, terrainBounds.min.z + (dropSeparation.z * z));
@@ -106,7 +106,9 @@ public class FluidErosionManager : MonoBehaviour
 
 					heights[0, 0] -= 0.0005f;
 
-					this.terrain.terrainData.SetHeights(dropIndex.x, dropIndex.y, heights);
+
+                    // THIS ONE IS VERY VERY VERY HEAVY!
+					//this.terrain.terrainData.SetHeights(dropIndex.x, dropIndex.y, heights);
 				}
 
 
@@ -137,12 +139,12 @@ public class FluidErosionManager : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-        /*if (this.drops != null)
+        if (this.drops != null)
         {
             for (int i = 0; i < this.drops.Count; ++i)
             {
 				Gizmos.DrawSphere(this.drops[i].position, this.drops[i].radius);
 			}
-		}*/
+		}
 	}
 }
